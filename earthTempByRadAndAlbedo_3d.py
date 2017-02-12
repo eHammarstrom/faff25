@@ -9,7 +9,7 @@ from mpl_toolkits.mplot3d import Axes3D
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
-A = np.linspace(0, 1, 100) # x-axel (A andel Albedo på planet)
+A = np.linspace(0, 0.60, 100) # x-axel (A andel Albedo på planet)
 f = np.linspace(0, 1, 100) # y-axel (f andel solstrålning som stannar kvar)
 
 X, Y = np.meshgrid(A, f)
@@ -29,7 +29,10 @@ def temp(nom, denom):
 
 Z = temp(nominator(X), denominator(Y)) # Applies function on meshgrid (2cool4me)
 
-ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, vmin=233, vmax=313)
+# ax.set_zticks(np.arange(Z.min(), Z.max(), 15))
+ax.set_zticks(np.arange(Z.min() - 287, Z.max() - 287, 15))
+# ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, vmin=247, vmax=327)
+ax.plot_surface(X, Y, Z - 287, cmap=cm.coolwarm, vmin=-40, vmax=40)
 
 ax.set_xlabel('Albedo (andel)')
 ax.set_ylabel('Reflekterad strålning av atmosfär (andel)')
