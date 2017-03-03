@@ -35,7 +35,7 @@ ax.set_zticks(np.arange(Z.min() - 287, Z.max() - 287, 15))
 ax.plot_surface(X, Y, Z - 287, cmap=cm.coolwarm, vmin=-40, vmax=40)
 
 ax.set_xlabel('Albedo (andel)')
-ax.set_ylabel('Reflekterad strålning av atmosfär (andel)')
-ax.set_zlabel('Temperatur i Kelvin')
+ax.set_ylabel('Absorption av långvågig strålning i atmosfär (andel)')
+ax.set_zlabel('Temperaturskillnad i Celsius')
 
 plt.show()

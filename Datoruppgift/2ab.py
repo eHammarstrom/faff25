@@ -38,14 +38,11 @@ N_arr.append(0)
 phi_arr.append(0)
 Time_arr.append(0)
 
-k = 0
 for t in T:
     if t != len(T) - 1:
-        Time_arr.append(dt * k)
-        N_arr.append(N_arr[k] + (P - B * N_arr[k] * phi_arr[k] - N_arr[k]/tau) * dt)
-        phi_arr.append(phi_arr[k] + (B * V_a * N_arr[k] * (phi_arr[k] + 1.0) - phi_arr[k]/tau_c) * dt)
-
-    k = k + 1
+        Time_arr.append(dt * t)
+        N_arr.append(N_arr[t] + (P - B * N_arr[t] * phi_arr[t] - N_arr[t]/tau) * dt)
+        phi_arr.append(phi_arr[t] + (B * V_a * N_arr[t] * (phi_arr[t] + 1.0) - phi_arr[t]/tau_c) * dt)
 
 f, axarr = plt.subplots(2, sharex=True)
 axarr[0].plot(Time_arr, phi_arr)
