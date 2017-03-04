@@ -2,7 +2,7 @@
 
 import math
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 
 sigma = 2.8 * 10**(-23) # m^2
 tau = 230.0 * 10**(-6) # µs
@@ -24,11 +24,11 @@ V = L * math.pi * (D/2)**2 # La or L ??
 P = N_inf / tau
 B = (sigma * c) / V
 
-dt = 1*10**(-9)
+dt = 1*10**(-11)
 
 V_a = math.pi * (4 * 10**(-3))**2 * La
 
-T = range(0, 200000)
+T = range(0, 20000000)
 
 N_arr = []
 phi_arr = []
@@ -47,7 +47,10 @@ for t in T:
 f, axarr = plt.subplots(2, sharex=True)
 axarr[0].plot(Time_arr, phi_arr)
 axarr[0].set_title('PHI')
+# axarr[0].set_xlim([40*10**(-6), 200*10**(-6)])
 axarr[1].plot(Time_arr, N_arr)
 axarr[1].set_title('N')
+# axarr[1].set_xlim([40*10**(-6), 200*10**(-6)])
+# axarr[1].set_ylim(2.4e23)
 
 plt.show()
